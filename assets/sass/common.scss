@@ -1,0 +1,207 @@
+html {    
+    touch-action: none;
+}
+
+body {
+    overflow-x: hidden;    
+        
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul,li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0 18px;
+    @include tablet-medium {
+        width: 728px;
+        margin: auto;
+        padding: 0;
+    }
+    @include tablet-large {
+        width: 941px;        
+    }
+    @include desktop {
+        width: 1100px;
+    }    
+}
+
+.xs-none {
+    display: none !important;
+}
+
+.md-block {
+    @include tablet-medium {
+        display: block !important;
+    }
+}
+
+.xl-block {
+    @include desktop {
+        display: block !important;
+    }
+}
+
+.md-none {
+    @include tablet-medium {
+        display: none !important;
+    }
+}
+
+.md-flex {
+    @include tablet-medium {
+        display: flex !important;
+    }
+}
+
+.md-inline-flex {
+    @include tablet-medium {
+        display: inline-flex !important;
+    }
+}
+
+.xl-flex {
+    @include desktop {
+        display: flex !important;
+    }
+}
+
+.section-full {
+    @include desktop {
+        height: calc(100vh - 85px) !important;
+    }     
+}
+
+.section-100 {
+    @include desktop {
+        height: 100%;
+    }
+}
+
+.section-full-center {
+    @include desktop {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.relative {
+    position: relative;
+}
+
+.background-default {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.h-100vh {
+    @include desktop {
+        height: 100vh;
+    }    
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.swiper-container {
+    height: 100%;
+    width: 100%;
+    padding-bottom: 50px;
+    @include tablet-medium {
+        padding-bottom: 64px;
+    }
+    @include desktop {
+        padding-bottom: 0;
+    }
+}
+
+.swiper-pagination-bullet {
+    border-radius: 50%;
+    opacity: 1;
+    background: none;
+    border: 1px solid white;
+    box-shadow: 0px 0px 10px #FFFFFF;
+    @include tablet-medium {
+        height: 15px;
+        width: 15px;        
+    }
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+    @include tablet-medium {
+        margin: 0 7px;
+    }
+}   
+
+
+.swiper-pagination-bullet-active {
+    background: white;
+}
+
+.pagination-black {
+    .swiper-pagination-bullet {
+        border: 1px solid #1C1526;
+    }
+    .swiper-pagination-bullet-active {
+        background: #1C1526
+    }
+}
+
+.vue-notification {
+    font-size: 16px !important;
+    @include tablet-medium {
+        font-size: 18px;
+    }
+}
+
+.font-400 {
+    font-weight: normal;
+}
+
+.CodeMirror {
+    font-size: 16px;
+    height: auto;
+}
+
+.all-flex {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.body-overflow-hidden {
+    overflow: hidden;
+}
+
+@include tablet-medium {
+    .body-overflow-hidden {
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+}
+
+@include tablet-large {}
+
+@include desktop {}

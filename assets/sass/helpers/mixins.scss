@@ -1,0 +1,98 @@
+@mixin mobile-medium {
+    @media(min-width: #{$mobile-medium-width}) {
+        @content;
+    }
+}
+
+@mixin tablet-medium {
+    @media(min-width: #{$tablet-medium-width}) {
+        @content;
+    }
+}
+
+@mixin tablet-large {
+    @media(min-width: #{$tablet-large-width}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media(min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+@mixin h-0 {
+    @media(min-height: 0) and (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+@mixin h-650 {
+    @media(min-height: 650) and (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+@mixin responsive-background($mobile: null, $tablet: null, $desktop:null) {    
+
+    background-image: url('#{$imagesPath}/#{$mobile}');
+
+    @if $tablet {
+        @include tablet-medium {
+            background-image: url('#{$imagesPath}/#{$tablet}');
+        }
+    }
+
+    @if $desktop {
+        @include desktop {
+            background-image: url('#{$imagesPath}/#{$desktop}');
+        }
+    }    
+}
+
+@mixin img-overlay($color: rgba(10, 0, 30, 0.5)) {
+    position: relative;
+
+    &:before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        background-color: $color;
+    }
+}
+
+@mixin background-default {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@mixin margin-l-r-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin font-face($name, $path, $weight: 400, $style: normal, $exts: ttf) {
+	$src: null;
+	
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {	
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url('../fonts/#{$path}.#{$ext}') format('#{$format}'), comma);
+	}
+
+	@font-face {
+		font-family: '#{$name}';
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
